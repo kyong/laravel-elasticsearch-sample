@@ -1,16 +1,17 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\Job;
 
-class DatabaseSeeder extends Seeder
+class JobTableSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        $this->call(JobTableSeeder::class);
+        factory(Job::class, 20);
     }
 }
