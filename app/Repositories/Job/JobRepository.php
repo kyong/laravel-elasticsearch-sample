@@ -10,9 +10,30 @@ class JobRepository implements JobRepositoryInterface
     /**
     * @param object $job
     */
-    public function __construct(User $job)
+    public function __construct(Job $job)
     {
         $this->job = $job;
+    }
+
+    public function find(int $id)
+    {
+        return $this->job->find($id);
+    }
+
+    public function search(String $keyword)
+    {
+
+    }
+
+
+    public function create(array $data)
+    {
+        return $this->job->create($data);
+    }
+
+    public function update(array $data)
+    {
+
     }
 
 }

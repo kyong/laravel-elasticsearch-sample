@@ -10,9 +10,14 @@ class CompanyRepository implements CompanyRepositoryInterface
     /**
     * @param object $company
     */
-    public function __construct(User $company)
+    public function __construct(Company $company)
     {
         $this->company = $company;
+    }
+
+    public function create(array $data)
+    {
+        return $this->company->create($data);
     }
 
 }
