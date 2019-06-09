@@ -1,18 +1,19 @@
 <?php
 
-namespace App;
+namespace App\Scout;
 
 use ScoutElastic\IndexConfigurator;
 use ScoutElastic\Migratable;
 
-class MyIndexConfigurator extends IndexConfigurator
+class JobIndexConfigurator extends IndexConfigurator
 {
     use Migratable;
 
-    // It's not obligatory to determine name. By default it'll be a snaked class name without `IndexConfigurator` part.
-    protected $name = 'my_index';
+    protected $name = 'job_index';
 
-    // You can specify any settings you want, for example, analyzers.
+    /**
+     * @var array
+     */
     protected $settings = [
         'analysis' => [
             'analyzer' => [
