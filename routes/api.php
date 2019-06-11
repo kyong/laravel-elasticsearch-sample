@@ -13,11 +13,12 @@ use Illuminate\Http\Request;
 |
 */
 Route::group(['prefix' => 'jobs'], function() {
-    Route::get('search','JobController@search');
+    Route::get('/search','JobController@search');
     Route::get('/{id}','JobController@show');
     Route::post('/','JobController@store');
-    Route::patch('search','JobController@update');
+    Route::patch('/','JobController@update');
 });
 Route::group(['prefix' => 'companies'], function() {
     Route::get('/{id}','CompanyController@show');
+    Route::post('/','CompanyController@store');
 });

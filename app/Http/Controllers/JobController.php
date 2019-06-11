@@ -36,7 +36,7 @@ class JobController extends Controller
         return new JobResouce($job);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $data = $request->all();
         $job = $this->job_repository->update($data);

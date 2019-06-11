@@ -32,8 +32,9 @@ class JobRepository implements JobRepositoryInterface
 
     public function update(array $data)
     {
-        $job = $this->find($data->id);
-        return $job->update($data);
+        $job = $this->job->findOrFail($data['id']);
+        $job->update($data);
+        return $job;
     }
 
 }
