@@ -16,15 +16,26 @@ class Job extends Model
     ];
     protected $indexConfigurator = JobIndexConfigurator::class;
 
+    public function company()
+    {
+        return $this->belongsTo(\App\Models\Company::class, 'company_id', 'id');
+    }
+
     protected $searchRules = [
         //
     ];
     protected $mapping = [
         'properties' => [
+            'company_name' => [
+                'type' => 'text',
+            ],
         ]
     ];
-    public function company()
+
+    public function toSearchableArray()
     {
-        return $this->belongsTo(Company::class);
+        $array = $this->toArray();
+        $array['company_name'] = $this->company->name;
+        return $array;
     }
 }

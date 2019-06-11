@@ -22,9 +22,8 @@ class JobRepository implements JobRepositoryInterface
 
     public function search(String $keyword)
     {
-
+        return $this->job->search($keyword)->get();
     }
-
 
     public function create(array $data)
     {
@@ -33,7 +32,8 @@ class JobRepository implements JobRepositoryInterface
 
     public function update(array $data)
     {
-
+        $job = $this->find($data->id);
+        return $job->update($data);
     }
 
 }

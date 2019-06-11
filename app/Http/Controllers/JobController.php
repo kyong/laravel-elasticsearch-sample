@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Resources\JobResouce;
 use App\Http\Requests\JobRequest;
 use App\Repositories\Job\JobRepositoryInterface;
@@ -22,16 +23,6 @@ class JobController extends Controller
         return JobResouce::collection($jobs);
     }
 
-    public function index()
-    {
-        //
-    }
-
-    public function create()
-    {
-        //
-    }
-
     public function store(JobRequest $request)
     {
         $data = $request->all();
@@ -45,11 +36,6 @@ class JobController extends Controller
         return new JobResouce($job);
     }
 
-    public function edit($id)
-    {
-        //
-    }
-
     public function update(Request $request, $id)
     {
         $data = $request->all();
@@ -57,8 +43,4 @@ class JobController extends Controller
         return new JobResouce($job);
     }
 
-    public function destroy($id)
-    {
-        //
-    }
 }
